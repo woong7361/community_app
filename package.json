@@ -1,0 +1,19 @@
+{
+  "name": "community_app",
+  "version": "1.0.0",
+  "description": "1st",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/woong7361/community_app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/woong7361/community_app/issues"
+  },
+  "homepage": "https://github.com/woong7361/community_app#readme"
+}
