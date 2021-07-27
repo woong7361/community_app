@@ -1,7 +1,7 @@
 import express from "express";
 import morgan from "morgan";
 
-const PORT_NUMBER = 5000;
+const PORT_NUMBER = process.env.PORT || 5000;
 
 const app = express();
 app.use(morgan("dev"))
