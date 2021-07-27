@@ -11,6 +11,7 @@ const handeler = (req,res) => {
 }
 
 app.get("/new", handeler);
+app.post("/new",handeler);
 
 const handleListening = () => {
     console.log(`Server is running on http://localhost:${PORT_NUMBER} `);
