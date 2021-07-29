@@ -4,6 +4,7 @@
   "description": "1st",
   "main": "index.js",
   "scripts": {
+    "test": "nodemon --exec babel-node test.js",
     "dev:server": "nodemon --exec babel-node src/server.js",
     "dev:build": "babel src -d build",
     "start": "node build/server.js",

@@ -14,3 +14,8 @@ export const handler3 = (req, res) => {
         password: "123456",
     });
 }
+
+export const handle404 = (req,res) => {
+    console.log("404 error");
+    res.status(404).redirect('http://google.com/eeeee');
+}
