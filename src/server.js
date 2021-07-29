@@ -1,24 +1,22 @@
 import express from "express";
-import morgan from "morgan";
+import logger from "morgan";
+import { handler1,
+    handler2, 
+    handler3 } from "./handler/handler.js";
 
 const PORT_NUMBER = process.env.PORT || 5000;
 
 const app = express();
-app.use(morgan("dev"))
+// app.use(logger("dev"))
+app.use(logger("combined"));
+app.use(express.json());
 
+app.get("/", handler1);
 
-const handeler1 = (req,res) => {
-    res.send('1');
-}
+app.get("/new", handler2);
+app.all("/users/login",handler3);
+app.all("/users/:id/login",handler3);
 
-const handeler2 = (req,res) => {
-    res.redirect('http://google.com');
-}
-
-app.get("/", handeler1);
-
-app.get("/new", handeler2);
-app.post("/new",handeler2);
 
 const handleListening = () => {
     console.log(`Server is running on http://localhost:${PORT_NUMBER} `);
