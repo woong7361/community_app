@@ -1,5 +1,6 @@
 import express from "express";
 import "dotenv/config"; 
+import "regenerator-runtime";
 import "./db.js";
 import logger from "morgan";
 import { 
