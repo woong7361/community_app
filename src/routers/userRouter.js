@@ -1,6 +1,6 @@
 import express from "express";
 import { 
-    handleLogin,
+    postLogin,
     postJoin,
     getJoin,
     userList,   
@@ -9,8 +9,8 @@ import {
 const userRouter = express.Router();
 
 
-userRouter.all("/login",handleLogin);
-userRouter.all("/:id/login",handleLogin);
+userRouter.all("/login",postLogin);
+userRouter.all("/:id/login",postLogin);
 
 userRouter.get("/join", getJoin);
 userRouter.post("/join", postJoin);

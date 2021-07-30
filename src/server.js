@@ -20,7 +20,7 @@ app.use(express.json());
 app.use("/users",userRouter);
 
 
-app.use(handle404);               //404 errorhandling
+// app.use(handle404);               //404 errorhandling
 const handleListening = () => {
     console.log(`Server is running on http://localhost:${PORT_NUMBER} `);
 } 

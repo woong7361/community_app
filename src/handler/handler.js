@@ -9,16 +9,12 @@ export const handler2 = (req,res) => {
     res.redirect('http://google.com');
 }
 
-export const handleLogin = (req, res) => {
-    console.log(req.body);
-    res.json({
-        user: "kimjinpyo",
-        id: "kjp",
-        password: "123456",
-    });
+export const postLogin = (req, res) => {
+    const{userEmail, userPwd} = req.body;
+    user = User.findOne({userName:userName});
 }
 export const getJoin = (req,res) => {          //using for debugging not build
-    res.sendFile(path.join(process.cwd(), "/src/views/join.html"));
+   return res.sendFile(path.join(process.cwd(), "/src/views/join.html"));
 }
 
 
@@ -32,19 +28,19 @@ export const postJoin = async(req,res) => {
             userPwd: userPwd,
         })
     }catch(error){
-        console.log("!!!join error!!!");
-        res.sendStatus(400);
+        console.log("!!!join error!!!", error);
+        return res.sendStatus(400);
     }
     console.log("!!!!!join success!!!!!");
-    res.sendStatus(200);
+    return res.sendStatus(200);
 }
 export const userList = async(req,res) => {
     try{
-    const userList = await User.find({});
-    console.log(userList);
-    res.status(200).send(userList);
+        const userList = await User.find({});
+        console.log(userList);
+        return res.status(200).send(userList);
     }catch(error){
-        res.sendStatus(400)
+        return res.sendStatus(400);
     }
 }
 
