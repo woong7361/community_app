@@ -15,13 +15,16 @@ export const postLogin = async(req, res) => {
     const user = await User.findOne({userEmail:userEmail});
     if(!user){ //if email is not exist
         message = "email is not exist";
+        console.log(message);
         return res.status(204).json({'message': message});
     }
     if(!(user.userPwd === userPwd)){ //if pwd is not matched
         message = "password is not matched";
+        console.log(message);
         return res.status(204).json({'message': message});
     }
     message = "login succeess";
+    console.log(message);
     return res.status(200).json({'message': message});
 
 }
