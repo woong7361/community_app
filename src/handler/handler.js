@@ -44,10 +44,10 @@ export const postJoin = async(req,res) => {
         })
     }catch(error){
         console.log("!!!join error!!!", error);
-        return res.sendStatus(400);
+        return res.status(400).json({'code':400});
     }
     console.log("!!!!!join success!!!!!");
-    return res.sendStatus(200);
+    return res.status(200).json({'code':200});
 }
 export const userList = async(req,res) => {
     try{
