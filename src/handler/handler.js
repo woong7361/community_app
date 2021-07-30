@@ -24,20 +24,28 @@ export const getJoin = (req,res) => {          //using for debugging not build
 
 export const postJoin = async(req,res) => {
     console.log(req.body);
-    const {name, username, email, password} = req.body;
-    const user = await User.create({
-        name: name,
-        username: username,
-        email: email,
-        password: password,
-    })
-    console.log(user);
+    const {userName, userEmail, userPwd} = req.body
+    try{
+        await User.create({
+            userName: userName,
+            userEmail: userEmail,
+            userPwd: userPwd,
+        })
+    }catch(error){
+        console.log("!!!join error!!!");
+        res.sendStatus(400);
+    }
+    console.log("!!!!!join success!!!!!");
     res.sendStatus(200);
 }
 export const userList = async(req,res) => {
+    try{
     const userList = await User.find({});
     console.log(userList);
-    res.send(userList);
+    res.status(200).send(userList);
+    }catch(error){
+        res.sendStatus(400)
+    }
 }
 
 export const handle404 = (req,res) => {
