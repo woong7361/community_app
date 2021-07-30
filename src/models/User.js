@@ -14,6 +14,7 @@ const userSchema = new mongoose.Schema({
 //         //hashing the password before save the data in database
 //     }
 // });
+//
 
 const User = mongoose.model("User",userSchema);
 export default User;
