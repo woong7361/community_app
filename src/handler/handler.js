@@ -9,9 +9,21 @@ export const handler2 = (req,res) => {
     res.redirect('http://google.com');
 }
 
-export const postLogin = (req, res) => {
+export const postLogin = async(req, res) => {
     const{userEmail, userPwd} = req.body;
-    user = User.findOne({userName:userName});
+    let message;
+    const user = await User.findOne({userEmail:userEmail});
+    if(!user){ //if email is not exist
+        message = "email is not exist";
+        return res.status(204).json({'message': message});
+    }
+    if(!(user.userPwd === userPwd)){ //if pwd is not matched
+        message = "password is not matched";
+        return res.status(204).json({'message': message});
+    }
+    message = "login succeess";
+    return res.status(200).json({'message': message});
+
 }
 export const getJoin = (req,res) => {          //using for debugging not build
    return res.sendFile(path.join(process.cwd(), "/src/views/join.html"));
