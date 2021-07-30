@@ -9,8 +9,7 @@ import {
 const userRouter = express.Router();
 
 
-userRouter.all("/login",postLogin);
-userRouter.all("/:id/login",postLogin);
+userRouter.post("/login",postLogin);
 
 userRouter.get("/join", getJoin);
 userRouter.post("/join", postJoin);
